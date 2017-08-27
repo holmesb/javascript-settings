@@ -30,10 +30,4 @@ object JavaScript_Template : Template({
             scriptContent = "npm test -- --single-run --browsers %Browser% --colors false --reporters teamcity"
         }
     }
-
-    triggers {
-        vcs {
-            id = "vcsTrigger"
-        }
-    }
 })
