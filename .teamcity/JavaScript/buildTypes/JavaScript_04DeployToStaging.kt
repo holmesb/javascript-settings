@@ -22,10 +22,6 @@ object JavaScript_04DeployToStaging : BuildType({
             snapshot {
             }
         }
-        dependency(JavaScript.buildTypes.JavaScript_02IE) {
-            snapshot {
-            }
-        }
         triggers {
             vcs {
                 id = "vcsTrigger"
