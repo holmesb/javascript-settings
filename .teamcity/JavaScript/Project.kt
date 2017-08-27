@@ -13,7 +13,7 @@ object Project : Project({
     extId = "JavaScript"
     parentId = "_Root"
     name = "JavaScript"
-
+    description = "My JS Project"
     vcsRoot(JavaScript_HttpsGithubComG0t4teamcityCourseCards)
 
     buildType(JavaScript_02Chrome)
