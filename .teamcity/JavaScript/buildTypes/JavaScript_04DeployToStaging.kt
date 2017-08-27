@@ -1,6 +1,7 @@
 package JavaScript.buildTypes
 
 import jetbrains.buildServer.configs.kotlin.v10.*
+import jetbrains.buildServer.configs.kotlin.v10.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.v10.triggers.vcs
 
 object JavaScript_04DeployToStaging : BuildType({
@@ -12,7 +13,16 @@ object JavaScript_04DeployToStaging : BuildType({
         root(JavaScript.vcsRoots.JavaScript_HttpsGithubComG0t4teamcityCourseCards)
 
     }
-
+    steps {
+        script {
+            name = "IIS Deploy"
+            id = "RUNNER_6"
+            scriptContent = """
+rmdir /S /Q \inetpub\wwwroot
+xcopy /S /I /Y app \inetpub\wwwroot
+            """
+        }
+    }
     dependencies {
         dependency(JavaScript.buildTypes.JavaScript_02Chrome) {
             snapshot {
